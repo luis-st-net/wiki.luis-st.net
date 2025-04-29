@@ -50,7 +50,7 @@ export default function () {
 						<strong>Contact:</strong><br/>
 						<span className="inline-block border-l-custom-black dark:border-l-white ml-1.5 mt-1.5 p-0.5 pl-2 border border-t-0 border-r-0 border-b-0">
 							Mail:{" "}
-							<Link href={"mailto:" + contactInfo.mail} className="text-custom-blue underline">
+							<Link href={"mailto:" + contactInfo.mail} className="text-custom-light-blue underline">
 									{contactInfo.mail}
 							</Link>
 						</span>

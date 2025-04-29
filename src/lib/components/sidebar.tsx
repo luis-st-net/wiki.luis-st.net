@@ -5,7 +5,7 @@ import * as Icons from "lucide-react";
 import Link from "next/link";
 import React from "react";
 import { Route } from "@/lib/types";
-import { aboutMe, programming, general } from "@/lib/routes";
+import { programming, imprint, contact } from "@/lib/routes";
 
 import { cn } from "@/lib/utility";
 
@@ -22,14 +22,6 @@ export default function Sidebar() {
 			</Ui.SidebarHeader>
 			
 			<Ui.SidebarContent>
-				<SidebarGroup title="About me">
-					<Ui.SidebarMenu>
-						<SidebarMenuItem route={aboutMe}/>
-					</Ui.SidebarMenu>
-				</SidebarGroup>
-				
-				<Ui.SidebarSeparator/>
-				
 				<SidebarGroup title="Programming">
 					<Ui.SidebarMenu>
 						{programming.subRoutes.map((route, index) => (
@@ -42,9 +34,8 @@ export default function Sidebar() {
 				
 				<SidebarGroup title="General">
 					<Ui.SidebarMenu>
-						{general.subRoutes.map((route, index) => (
-							<SidebarMenuItem key={index} parentRoute={general} route={route}/>
-						))}
+						<SidebarMenuItem route={imprint}/>
+						<SidebarMenuItem route={contact}/>
 					</Ui.SidebarMenu>
 				</SidebarGroup>
 			</Ui.SidebarContent>

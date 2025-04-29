@@ -1,19 +1,13 @@
 import { Route } from "@/lib/types";
 import * as Icons from "lucide-react";
 
-export const aboutMe: Route = {
-	title: "About Me",
-	icon: Icons.User,
-	route: "/about-me",
-	subRoutes: [],
-}
-
 export const websites: Route = {
 	title: "Websites",
 	icon: Icons.Earth,
 	route: "/websites",
 	subRoutes: [
-		{ title: "My Website", route: "/my-website", subRoutes: [] },
+		{ title: "Portfolio Website", route: "/portfolio-website", subRoutes: [] },
+		{ title: "Wiki Website", route: "/wiki-website", subRoutes: [] },
 	],
 };
 export const projects: Route = {
@@ -66,26 +60,29 @@ export const programming: Route = {
 		mods,
 		services,
 	],
-}
+};
 
-export const general: Route = {
-	title: "General",
-	icon: Icons.Settings,
-	route: "/general",
-	subRoutes: [
-		{ title: "Imprint", icon: Icons.FileText, route: "/imprint", subRoutes: [] },
-		{ title: "Contact", icon: Icons.Mail, route: "/contact", subRoutes: [] },
-	],
-}
+export const imprint: Route = {
+	title: "Imprint",
+	icon: Icons.FileText,
+	route: "/imprint",
+	subRoutes: [],
+};
+export const contact: Route = {
+	title: "Contact",
+	icon: Icons.Mail,
+	route: "/contact",
+	subRoutes: [],
+};
 
 export const base: Route = {
 	title: "Home",
 	icon: Icons.Home,
 	route: "/",
 	subRoutes: [
-		aboutMe,
 		programming,
-		general,
+		imprint,
+		contact,
 	],
 };
 

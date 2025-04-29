@@ -8,6 +8,12 @@ const config: Config = {
 	theme: {
 		extend: {
 			screens: {
+				"nano": "16rem",
+				"micro": "20rem",
+				"tiny": "22.5rem",
+				"xxs": "25rem",
+				"xs": "30rem",
+				"custom-lg": "61.25rem",
 				"3xl": "112rem",
 				"4xl": "128rem",
 			},
@@ -29,6 +35,9 @@ const config: Config = {
 					shell: "var(--language-shell)",
 					kotlin: "var(--language-kotlin)",
 					groovy: "var(--language-groovy)",
+					sql: "var(--language-sql)",
+					html: "var(--language-html)",
+					css: "var(--language-css)",
 				},
 				framework: {
 					spring: "var(--framework-spring)",
@@ -45,8 +54,17 @@ const config: Config = {
 				"build-system": {
 					gradle: "var(--build-system-gradle)",
 					maven: "var(--build-system-maven)",
-					npm: "var(--build-system-npm)",
 					vite: "var(--build-system-vite)",
+				},
+				"development-tool": {
+					jetbrains: "var(--development-tool-jetbrains)",
+					eclipse: "var(--development-tool-eclipse)",
+					npm: "var(--development-tool-npm)",
+					git: "var(--development-tool-git)",
+					"ci-cd": "var(--development-tool-ci-cd)",
+					docker: "var(--development-tool-docker)",
+					postman: "var(--development-tool-postman)",
+					postgresql: "var(--development-tool-postgresql)",
 				},
 				custom: {
 					primary: "var(--custom-primary)",
