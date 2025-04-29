@@ -1,6 +1,7 @@
 import * as Icons from "lucide-react";
 import { z } from "zod";
 import type { IconType } from "react-icons";
+import { ControllerFieldState, ControllerRenderProps, UseFormStateReturn } from "react-hook-form";
 
 export interface Route {
 	title: string,
@@ -9,16 +10,40 @@ export interface Route {
 	subRoutes: Route[],
 }
 
+
 export const contactFormSchema = z.object({
 	name: z.string().min(1, "Name is required"),
-	email: z.string().email("Invalid email address"),
+	mail: z.string().email("Invalid mail address"),
 	subject: z.string().min(1, "Subject is required"),
 	message: z.string().min(1, "Message is required"),
 	acceptTerms: z.boolean().refine(value => value, "You must accept the contact conditions"),
 	bot: z.boolean().optional(),
 });
-
 export type ContactFormValues = z.infer<typeof contactFormSchema>;
+export type ContactFormFieldRendererProps<T extends keyof ContactFormValues = keyof ContactFormValues> = {
+	field: ControllerRenderProps<ContactFormValues, T>;
+	fieldState: ControllerFieldState;
+	formState: UseFormStateReturn<ContactFormValues>;
+};
+
+export const verificationFormSchema = z.object({
+	verificationToken: z.string(),
+	verificationCode: z.string().length(6, "Verification code must be 6 digits"),
+});
+export type VerificationFormValues = z.infer<typeof verificationFormSchema>;
+export type VerificationFormFieldRendererProps<T extends keyof VerificationFormValues = keyof VerificationFormValues> = {
+	field: ControllerRenderProps<VerificationFormValues, T>;
+	fieldState: ControllerFieldState;
+	formState: UseFormStateReturn<VerificationFormValues>;
+};
+
+export interface ContactInformation {
+	name: string,
+	street: string,
+	city: string,
+	country: string,
+	mail: string,
+}
 
 export interface SocialLink {
 	icon: IconType

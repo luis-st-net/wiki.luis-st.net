@@ -1,3 +1,6 @@
+import { ClassValue, clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
+
 export function isProduction(): boolean {
 	return process.env.NODE_ENV === "production";
 }
@@ -15,4 +18,8 @@ export function getAgeFromBirthdate(): number {
 		years--;
 	}
 	return years;
+}
+
+export function cn(...inputs: ClassValue[]) {
+	return twMerge(clsx(inputs));
 }

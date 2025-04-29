@@ -6,7 +6,8 @@ import Link from "next/link";
 import React from "react";
 import { Route } from "@/lib/types";
 import { aboutMe, programming, general } from "@/lib/routes";
-import { cn } from "@/lib/utils";
+
+import { cn } from "@/lib/utility";
 
 const animation = "transition-all duration-200 ease-in-out";
 

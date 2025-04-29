@@ -6,8 +6,7 @@ import ContentPane from "@/lib/components/content-pane";
 import Link from "next/link";
 import { Skill, SocialLink } from "@/lib/types";
 import CodeBlock from "@/lib/components/code-block";
-import { getAgeFromBirthdate } from "@/lib/utility";
-import { cn } from "@/lib/utils";
+import { cn, getAgeFromBirthdate } from "@/lib/utility";
 import { languages, frameworks } from "@/lib/skills";
 
 const github: SocialLink = {
