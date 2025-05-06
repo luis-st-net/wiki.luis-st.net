@@ -8,6 +8,7 @@ export const websites: Route = {
 	subRoutes: [
 		{ title: "Portfolio Website", route: "/portfolio-website", subRoutes: [] },
 		{ title: "Wiki Website", route: "/wiki-website", subRoutes: [] },
+		{ title: "Digital Web Signing Tool", route: "/digital-web-signing-tool", subRoutes: [] },
 	],
 };
 export const projects: Route = {
