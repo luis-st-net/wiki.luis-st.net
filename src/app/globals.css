@@ -1,0 +1,267 @@
+@import "tailwindcss";
+@config "../../tailwind.config.ts";
+@plugin "@tailwindcss/typography";
+@import "tw-animate-css";
+
+:root {
+	--background: 210 33% 99%;
+	--foreground: 210 22% 15%;
+
+	--card: 0 0% 100%;
+	--card-foreground: 210 22% 15%;
+
+	--popover: 0 0% 100%;
+	--popover-foreground: 210 22% 15%;
+
+	--primary: 222 47% 44%;
+	--primary-foreground: 0 0% 100%;
+
+	--secondary: 220 14% 96%;
+	--secondary-foreground: 222 47% 20%;
+
+	--muted: 220 14% 96%;
+	--muted-foreground: 220 15% 40%;
+
+	--accent: 221 89% 64%;
+	--accent-foreground: 210 33% 99%;
+
+	--destructive: 0 84% 60%;
+	--destructive-foreground: 210 33% 99%;
+
+	--border: 215 16% 88%;
+	--input: 215 16% 88%;
+	--ring: 222 100% 72%;
+
+	--sidebar-background: 210 30% 98%;
+	--sidebar-foreground: 222 47% 16%;
+	--sidebar-primary: 223 47% 36%;
+	--sidebar-primary-foreground: 0 0% 100%;
+	--sidebar-accent: 219 14% 92%;
+	--sidebar-accent-foreground: 222 47% 20%;
+	--sidebar-border: 215 16% 88%;
+	--sidebar-ring: 222 100% 72%;
+
+	--chart-1: 217 91% 60%;
+	--chart-2: 159 75% 48%;
+	--chart-3: 39 84% 58%;
+	--chart-4: 291 70% 60%;
+	--chart-5: 12 87% 64%;
+
+	--language-java: 25 90% 55%;
+	--language-python: 199 89% 55%;
+	--language-javascript: 48 96% 53%;
+	--language-typescript: 222 89% 66%;
+	--language-csharp: 152 42% 45%;
+	--language-cpp: 213 90% 50%;
+	--language-shell: 120 35% 45%;
+	--language-kotlin: 272 76% 60%;
+	--language-groovy: 171 55% 42%;
+	--language-sql: 190 80% 52%;
+	--language-html: 12 90% 60%;
+	--language-css: 208 88% 60%;
+
+	--framework-spring: 122 45% 45%;
+	--framework-asp-dot-net: 222 89% 50%;
+	--framework-react: 193 100% 49%;
+	--framework-next-js: 210 4% 10%;
+	--framework-vue-js: 152 63% 45%;
+	--framework-tailwind: 199 89% 55%;
+	--framework-java-fx: 272 76% 60%;
+	--framework-wpf: 243 100% 72%;
+	--framework-qt: 148 60% 40%;
+	--framework-unity: 0 0% 20%;
+
+	--build-system-gradle: 137 40% 30%;
+	--build-system-maven: 0 80% 40%;
+	--build-system-vite: 255 85% 65%;
+
+	--development-tool-jetbrains: 300 96% 55%;
+	--development-tool-eclipse: 31 100% 65%;
+	--development-tool-npm: 0 76% 50%;
+	--development-tool-git: 12 80% 50%;
+	--development-tool-ci-cd: 222 89% 50%;
+	--development-tool-docker: 200 70% 52%;
+	--development-tool-postman: 22 90% 55%;
+	--development-tool-postgresql: 207 76% 45%;
+
+	--custom-primary: 222 47% 44%;
+	--custom-secondary: 210 24% 96%;
+	--custom-tertiary: 210 22% 22%;
+	--custom-quaternary: 210 22% 18%;
+	--custom-accent-blue: 218 100% 57%;
+	--custom-accent-green: 152 63% 45%;
+	--custom-accent-yellow: 48 96% 53%;
+	--custom-accent-orange: 22 90% 55%;
+	--custom-accent-red: 0 84% 60%;
+	--custom-light-blue: 212 70% 94%;
+	--custom-light-gray: 220 15% 96%;
+	--custom-dark-blue: 221 57% 26%;
+	--custom-dark-green: 149 63% 28%;
+	--custom-dark-red: 4 75% 35%;
+	--custom-dark-gray: 222 15% 18%;
+	--custom-blue: 215 88% 60%;
+	--custom-green: 155 65% 45%;
+	--custom-yellow: 47 95% 55%;
+	--custom-orange: 22 90% 55%;
+	--custom-red: 0 84% 60%;
+	--custom-gray: 215 16% 45%;
+	--custom-anthracite: 222 17% 21%;
+	--custom-white: 0 0% 100%;
+	--custom-white-primary: 0 0% 100%;
+	--custom-white-secondary: 0 0% 98%;
+	--custom-white-tertiary: 0 0% 94%;
+	--custom-black: 0 0% 0%;
+	--custom-black-primary: 220 30% 8%;
+	--custom-black-secondary: 220 25% 12%;
+	--custom-black-tertiary: 220 20% 18%;
+
+	--radius: 0.75rem;
+	--sidebar-width: 20rem;
+}
+
+.dark {
+	--background: 220 28% 10%;
+	--foreground: 210 40% 96%;
+
+	--card: 222 30% 16%;
+	--card-foreground: 210 40% 96%;
+
+	--popover: 222 30% 16%;
+	--popover-foreground: 210 40% 96%;
+
+	--primary: 223 74% 64%;
+	--primary-foreground: 222 28% 12%;
+
+	--secondary: 222 28% 18%;
+	--secondary-foreground: 210 40% 96%;
+
+	--muted: 222 28% 18%;
+	--muted-foreground: 215 22% 75%;
+
+	--accent: 223 74% 64%;
+	--accent-foreground: 222 28% 12%;
+
+	--destructive: 0 72% 52%;
+	--destructive-foreground: 210 40% 96%;
+
+	--border: 220 20% 22%;
+	--input: 220 20% 22%;
+	--ring: 223 74% 64%;
+
+	--sidebar-background: 220 28% 12%;
+	--sidebar-foreground: 210 40% 96%;
+	--sidebar-primary: 223 74% 64%;
+	--sidebar-primary-foreground: 222 28% 12%;
+	--sidebar-accent: 222 28% 18%;
+	--sidebar-accent-foreground: 210 40% 96%;
+	--sidebar-border: 220 20% 22%;
+	--sidebar-ring: 223 74% 64%;
+
+	--chart-1: 217 87% 75%;
+	--chart-2: 159 75% 65%;
+	--chart-3: 39 84% 65%;
+	--chart-4: 291 70% 70%;
+	--chart-5: 12 87% 70%;
+
+	--language-java: 25 90% 65%;
+	--language-python: 199 89% 65%;
+	--language-javascript: 48 96% 63%;
+	--language-typescript: 222 89% 76%;
+	--language-csharp: 152 42% 55%;
+	--language-cpp: 213 90% 60%;
+	--language-shell: 120 35% 55%;
+	--language-kotlin: 272 76% 70%;
+	--language-groovy: 171 55% 52%;
+	--language-sql: 190 80% 62%;
+	--language-html: 12 90% 70%;
+	--language-css: 208 88% 70%;
+
+	--framework-spring: 122 45% 55%;
+	--framework-asp-dot-net: 222 89% 60%;
+	--framework-react: 193 100% 59%;
+	--framework-next-js: 210 4% 80%;
+	--framework-vue-js: 152 63% 55%;
+	--framework-tailwind: 199 89% 65%;
+	--framework-java-fx: 272 76% 70%;
+	--framework-wpf: 243 100% 82%;
+	--framework-qt: 148 60% 50%;
+	--framework-unity: 0 0% 94%;
+
+	--build-system-gradle: 137 40% 40%;
+	--build-system-maven: 0 80% 50%;
+	--build-system-vite: 255 85% 75%;
+
+	--development-tool-jetbrains: 300 96% 65%;
+	--development-tool-eclipse: 31 100% 75%;
+	--development-tool-npm: 0 76% 60%;
+	--development-tool-git: 12 80% 60%;
+	--development-tool-ci-cd: 222 89% 60%;
+	--development-tool-docker: 200 70% 62%;
+	--development-tool-postman: 22 90% 65%;
+	--development-tool-postgresql: 207 76% 55%;
+
+	--custom-primary: 223 74% 64%;
+	--custom-secondary: 222 28% 18%;
+	--custom-tertiary: 222 28% 16%;
+	--custom-quaternary: 222 28% 14%;
+	--custom-accent-blue: 218 100% 67%;
+	--custom-accent-green: 152 63% 55%;
+	--custom-accent-yellow: 48 96% 63%;
+	--custom-accent-orange: 22 90% 65%;
+	--custom-accent-red: 0 84% 70%;
+	--custom-light-blue: 212 70% 22%;
+	--custom-light-gray: 222 15% 22%;
+	--custom-dark-blue: 221 57% 18%;
+	--custom-dark-green: 149 63% 22%;
+	--custom-dark-red: 4 75% 24%;
+	--custom-dark-gray: 222 15% 16%;
+	--custom-blue: 215 88% 68%;
+	--custom-green: 155 65% 55%;
+	--custom-yellow: 47 95% 65%;
+	--custom-orange: 22 90% 65%;
+	--custom-red: 0 84% 70%;
+	--custom-gray: 215 16% 65%;
+	--custom-anthracite: 222 17% 12%;
+	--custom-white: 0 0% 100%;
+	--custom-white-primary: 0 0% 96%;
+	--custom-white-secondary: 0 0% 92%;
+	--custom-white-tertiary: 0 0% 88%;
+	--custom-black: 0 0% 0%;
+	--custom-black-primary: 0 0% 100%;
+	--custom-black-secondary: 220 5% 80%;
+	--custom-black-tertiary: 220 4% 60%;
+
+	--radius: 0.75rem;
+}
+
+* {
+	border-color: hsl(var(--border));
+}
+
+body {
+	background-color: hsl(var(--background));
+	color: hsl(var(--foreground));
+	font-feature-settings: "rlig" 1, "kern" 1;
+}
+
+.wiki-prose {
+	@apply prose prose-slate max-w-none dark:prose-invert prose-headings:scroll-mt-28 prose-code:font-mono prose-code:text-sm;
+}
+
+.scrollbar-thin {
+	scrollbar-width: thin;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+	width: 0.5rem;
+	height: 0.5rem;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+	background-color: hsl(var(--muted-foreground));
+	border-radius: 9999px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+	background-color: transparent;
+}

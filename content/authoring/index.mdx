@@ -1,0 +1,33 @@
+---
+title: Authoring Content
+description: Learn how to manage documentation through the admin workspace.
+order: 4
+---
+
+## Admin Panel Overview
+
+The admin panel lives at `/admin` and groups all documentation tooling behind a single route prefix so that you can guard access with middleware or network rules.
+
+### Key Features
+
+- Browse the full file system hierarchy.
+- Create or delete folders to reorganize documentation.
+- Create, edit, and delete MDX files.
+- Live preview edits using the same renderer as the public wiki.
+
+## Editing Workflow
+
+1. Select a page in the tree to load its MDX source.
+2. Make changes in the Markdown tab.
+3. Switch to **Preview** to verify formatting and components.
+4. Click **Save** to write directly to the file system.
+
+> Unsaved changes are detected when you switch pages; you will be prompted before discarding edits.
+
+## Collaborative Editing
+
+- All changes are written to disk, so your version control tools pick them up automatically.
+- Pair the admin panel with Git hooks or CI pipelines to automatically commit docs updates.
+- Combine with pull requests for review before publishing.
+
+Continue to [Authoring with the Admin Workspace](/wiki/authoring/using-admin) for a detailed walkthrough.

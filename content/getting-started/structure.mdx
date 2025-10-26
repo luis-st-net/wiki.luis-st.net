@@ -1,0 +1,42 @@
+---
+title: Project Structure
+description: Understand how the wiki maps file-system folders into navigation.
+order: 3
+---
+
+## Content Directory
+
+The wiki scans the `content/` directory recursively to build navigation. For every folder:
+
+- The folder name becomes a sidebar section.
+- An optional `index.mdx` inside the folder renders when users visit the folder route.
+- Additional `.mdx` files become child pages.
+
+## Example Mapping
+
+| File | Route |
+| --- | --- |
+| `content/index.mdx` | `/wiki` |
+| `content/reference/index.mdx` | `/wiki/reference` |
+| `content/reference/mdx-components.mdx` | `/wiki/reference/mdx-components` |
+
+## Ordering
+
+Use the `order` frontmatter key to control sort order inside folders. Lower numbers appear first.
+
+```mdx
+---
+title: Custom Ordering
+order: 1
+---
+```
+
+## Embedded Components
+
+MDX pages can render React components that live in the codebase. Example:
+
+```mdx
+<Callout type="success" title="Reusable blocks">Embed UI elements directly inside your documentation.</Callout>
+```
+
+The admin preview uses the same MDX pipeline, so authors see the exact rendering before publishing.

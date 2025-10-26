@@ -1,0 +1,53 @@
+---
+title: Installation & Configuration
+description: Set environment variables, scripts, and deployment targets for the wiki.
+order: 2
+---
+
+## Dependencies
+
+Install dependencies and generate the Tailwind build:
+
+```bash
+npm install
+npm run build
+```
+
+## Environment Variables
+
+| Variable | Description | Example |
+| --- | --- | --- |
+| `WIKI_CONTENT_ROOT` | Optional custom path to the MDX content directory. | `./docs` |
+| `WIKI_THEME_DEFAULT` | Overrides the default theme. | `dark` |
+
+> **Tip:** Not all deployments require environment overrides. The wiki uses the `content/` directory by default.
+
+## Deployment
+
+1. Run `npm run build` to produce optimized assets.
+2. Deploy `.next/` output to your platform (Vercel, Netlify, Cloudflare, etc.).
+3. Ensure the `content/` directory is bundled with your deployment.
+
+## CI Automation
+
+```yaml
+name: Wiki Quality Check
+
+on:
+  pull_request:
+    paths:
+      - 'content/**'
+
+jobs:
+  lint-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm install
+      - run: npm run build
+```
+
+Use a dedicated CI workflow to ensure documentation changes compile successfully before merging into the main branch.

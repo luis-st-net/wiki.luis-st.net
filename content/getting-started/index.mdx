@@ -1,0 +1,39 @@
+---
+title: Getting Started
+description: Configure and customize the wiki on your local machine.
+order: 1
+---
+
+## Prerequisites
+
+- Node.js 18 or later
+- npm or pnpm
+- Git access to your documentation repository
+
+## Installation
+
+```bash
+npm install
+npm run dev
+```
+
+Once the development server starts, open [http://localhost:3000/wiki](http://localhost:3000/wiki) to browse the documentation experience.
+
+## Directory Layout
+
+```
+content/
+  index.mdx
+  getting-started/
+    index.mdx
+    installation.mdx
+    structure.mdx
+```
+
+Each folder becomes a collapsible section in the sidebar. Every `.mdx` file becomes a wiki page whose slug matches its file name.
+
+## Next Steps
+
+- Review [Installation](/wiki/getting-started/installation) for environment variables and scripts.
+- Study [Project Structure](/wiki/getting-started/structure) to understand where to add new folders.
+- Visit the [Admin Panel](/admin) to test in-browser authoring.

@@ -1,0 +1,25 @@
+@import "prismjs/themes/prism-tomorrow.css";
+@reference "../app/globals.css";
+
+pre[class*="language-"] {
+	@apply rounded-lg border border-border p-4 text-sm leading-relaxed;
+	background-color: hsl(var(--muted) / 0.2);
+}
+
+code[class*="language-"],
+pre[class*="language-"] {
+	@apply font-mono;
+}
+
+pre::-webkit-scrollbar {
+	height: 0.75rem;
+}
+
+pre::-webkit-scrollbar-thumb {
+	background-color: hsl(var(--muted-foreground));
+	border-radius: 9999px;
+}
+
+pre::-webkit-scrollbar-track {
+	background-color: transparent;
+}

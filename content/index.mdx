@@ -1,0 +1,45 @@
+---
+title: Project Wiki Overview
+description: Learn how this MDX-powered wiki keeps documentation versioned alongside your GitHub projects.
+order: 0
+---
+
+## Welcome
+
+This wiki is implemented entirely with **Next.js 15**, **Tailwind CSS**, and version-controlled **MDX** files. Every page you read is stored as plain text inside the `content/` directory so you can branch, review, and deploy documentation with the rest of your codebase.
+
+### Core Capabilities
+
+- **Hierarchical navigation** powered by the folder structure.
+- **Global search** that scans titles, headings, and body text in real time.
+- **Dark and light themes** with a single toggle.
+- **MDX rendering** with syntax-highlighted code snippets and reusable components.
+- **Browser-based authoring tools** for teams that prefer a visual editor over a text editor.
+
+### Quick Start Checklist
+
+1. Explore the navigation on the left to understand how folders turn into wiki sections.
+2. Visit the [Getting Started](/wiki/getting-started) guide to configure content on your machine.
+3. Use the `Ctrl + K` shortcut anywhere to open the universal search dialog.
+4. Switch to the **Admin Panel** to create, edit, and delete MDX files without leaving the browser.
+
+<Callout type="info" title="Need a new section?">
+Use the *Admin Panel → New Folder* action to scaffold nested documentation. You can always reorganize content by moving the underlying files.
+</Callout>
+
+## How This Wiki Works
+
+```tsx showLineNumbers
+import { compileWikiMdx } from "@/lib/wiki/mdx";
+
+export async function renderMdx(source: string) {
+  const { content: Content } = await compileWikiMdx(source);
+  return <Content />;
+}
+```
+
+The snippet above is an excerpt from the runtime that compiles raw MDX into React components. Because the MDX source lives in your repository, pull requests, code review, and CI can enforce documentation quality right next to application code.
+
+## What's Next?
+
+Head to [Authoring Content](/wiki/authoring) to see the admin workspace, or dive into the [Reference](/wiki/reference) section for component-level documentation.

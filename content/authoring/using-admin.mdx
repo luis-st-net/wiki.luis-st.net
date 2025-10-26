@@ -1,0 +1,45 @@
+---
+title: Using the Admin Workspace
+description: Detailed guide for creating, editing, and deleting MDX content in the browser.
+order: 5
+---
+
+## Creating a Page
+
+1. Click **New Page** in the left panel.
+2. Choose a parent folder (or leave it on *Root*).
+3. Provide a slug-like name (e.g., `release-notes`).
+4. Edit the generated frontmatter and body content, then save.
+
+## Creating a Folder
+
+- Click **New Folder** and supply a name.
+- Optional: Add an `index.mdx` inside the folder to describe the section.
+
+## Deleting Content
+
+- Select a page and choose **Delete** to remove the file.
+- Remove folders (and their children) via the trash icon next to the folder name.
+
+## Live Preview
+
+The preview tab renders MDX using the same pipeline as the live wiki:
+
+```tsx
+const response = await fetch("/api/admin/wiki/preview", { method: "POST", body: JSON.stringify({ content }) });
+```
+
+This round-trip ensures that all MDX components, callouts, and code snippets display exactly as they will in production.
+
+## Keyboard Shortcuts
+
+| Shortcut | Description |
+| --- | --- |
+| `Ctrl + S` | Saves the current page (browser shortcut will also trigger save). |
+| `Ctrl + K` | Opens global search even inside the admin workspace. |
+
+## Version Control Tips
+
+- Commit docs changes alongside code changes so they deploy together.
+- Use git branches to collaborate on multi-page updates.
+- Merge documentation PRs only after previewing the rendered result.

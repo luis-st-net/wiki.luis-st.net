@@ -1,0 +1,52 @@
+---
+title: MDX Components
+description: Catalogue of custom components available inside documentation pages.
+order: 7
+---
+
+## Callout
+
+```mdx
+<Callout type="success" title="Success!">
+  Your deployment completed without errors.
+</Callout>
+```
+
+### Variants
+
+| Type | Styling |
+| --- | --- |
+| `info` | Neutral accent used for tips and context. |
+| `success` | Green accent for positive status. |
+| `warning` | Amber accent for cautionary notes. |
+| `danger` | Red accent for blockers or breaking changes. |
+
+## Code Blocks
+
+Use triple backticks with a language identifier. Syntax highlighting is powered by Prism.js.
+
+```tsx
+function Example() {
+  return <span className="text-primary">Code blocks support JSX and TSX.</span>;
+}
+```
+
+```bash
+npm run build
+```
+
+## Tables & Lists
+
+Markdown tables and lists automatically inherit wiki styling.
+
+- Bullet lists are spaced for readability.
+- Numbered lists use consistent typography.
+- Tables apply alternating row colors in light and dark themes.
+
+## Images
+
+```mdx
+<img src="/images/wiki-screenshot.png" alt="Wiki interface" />
+```
+
+Images can be imported via the Next.js `Image` component as well.
