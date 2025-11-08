@@ -1,14 +1,102 @@
-@import "prismjs/themes/prism-tomorrow.css";
+:root {
+	--prism-bg: 220 14% 98%;
+	--prism-border: var(--border);
+	--prism-foreground: var(--foreground);
+	--prism-comment: 222 9% 46%;
+	--prism-punctuation: 220 11% 38%;
+	--prism-operator: 222 47% 28%;
+	--prism-keyword: 261 75% 45%;
+	--prism-string: 152 63% 35%;
+	--prism-number: 12 80% 45%;
+	--prism-function: 199 89% 40%;
+	--prism-variable: 47 95% 45%;
+}
+
+.dark {
+	--prism-bg: 222 28% 14%;
+	--prism-border: var(--border);
+	--prism-foreground: var(--foreground);
+	--prism-comment: 215 15% 65%;
+	--prism-punctuation: 215 15% 70%;
+	--prism-operator: 199 89% 70%;
+	--prism-keyword: 261 85% 75%;
+	--prism-string: 152 63% 70%;
+	--prism-number: 12 84% 70%;
+	--prism-function: 199 89% 75%;
+	--prism-variable: 47 95% 72%;
+}
+
 @reference "../app/globals.css";
 
 pre[class*="language-"] {
-	@apply rounded-lg border border-border p-4 text-sm leading-relaxed;
-	background-color: hsl(var(--muted) / 0.2);
+	@apply rounded-lg border p-4 text-sm leading-relaxed shadow-sm;
+	border-color: hsl(var(--prism-border));
+	background-color: hsl(var(--prism-bg) / 0.98);
+	color: hsl(var(--prism-foreground));
 }
 
 code[class*="language-"],
 pre[class*="language-"] {
 	@apply font-mono;
+}
+
+code[class*="language-"] {
+	color: hsl(var(--prism-foreground));
+	text-shadow: none;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: hsl(var(--prism-comment));
+	font-style: italic;
+}
+
+.token.punctuation {
+	color: hsl(var(--prism-punctuation));
+}
+
+.token.operator,
+.token.boolean {
+	color: hsl(var(--prism-operator));
+}
+
+.token.keyword,
+.token.atrule,
+.token.selector,
+.token.important {
+	color: hsl(var(--prism-keyword));
+}
+
+.token.string,
+.token.char,
+.token.attr-value,
+.token.inserted {
+	color: hsl(var(--prism-string));
+}
+
+.token.number,
+.token.builtin,
+.token.symbol,
+.token.deleted {
+	color: hsl(var(--prism-number));
+}
+
+.token.function,
+.token.class-name {
+	color: hsl(var(--prism-function));
+}
+
+.token.variable,
+.token.constant,
+.token.property {
+	color: hsl(var(--prism-variable));
+}
+
+.token.regex,
+.token.url {
+	color: hsl(var(--prism-string));
 }
 
 pre::-webkit-scrollbar {
