@@ -6,7 +6,7 @@ import { WikiSearchDialog } from "@/components/wiki/search-dialog";
 
 export function WikiHeader() {
 	return (
-		<header className="relative flex h-16 items-center justify-between border-b border-border/80 bg-background/90 px-5 backdrop-blur supports-[backdrop-filter]:backdrop-blur">
+		<header className="fixed inset-x-0 top-0 z-[200] flex h-16 w-full items-center justify-between border-b border-border/80 bg-[hsl(var(--background))] px-5 text-foreground shadow-md">
 			<div className="flex items-center gap-3">
 				<Link href="/" className="text-lg font-semibold tracking-tight text-foreground">
 					Wiki Workspace

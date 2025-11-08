@@ -47,7 +47,7 @@ export function WikiTableOfContents({ headings }: WikiTableOfContentsProps) {
 	}
 
 	return (
-		<aside className="sticky top-24 hidden w-64 shrink-0 lg:block">
+		<aside className="sticky top-24 hidden w-64 shrink-0 self-start lg:block">
 			<div className="rounded-xl border border-border/70 bg-background/80 p-4">
 				<p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">On this page</p>
 				<nav className="mt-3 space-y-1 text-sm">

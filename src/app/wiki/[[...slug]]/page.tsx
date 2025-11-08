@@ -41,10 +41,12 @@ export default async function WikiPage({ params }: { params: WikiPageParams }) {
 
 	return (
 		<>
-			<WikiPageContainer page={page} breadcrumbs={breadcrumbs}>
-				{content}
-			</WikiPageContainer>
 			<WikiTableOfContents headings={page.headings} />
+			<div className="min-w-0 flex-1">
+				<WikiPageContainer page={page} breadcrumbs={breadcrumbs}>
+					{content}
+				</WikiPageContainer>
+			</div>
 		</>
 	);
 }
