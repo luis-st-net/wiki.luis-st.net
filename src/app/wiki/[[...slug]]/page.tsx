@@ -7,12 +7,11 @@ import { compileWikiMdx } from "@/lib/wiki/mdx";
 import { getBreadcrumbsForSlug } from "@/lib/wiki/navigation";
 import { getWikiPage } from "@/lib/wiki/content";
 
-type WikiPageProps = {
-	params: { slug?: string[] };
-};
+type WikiPageParams = Promise<{ slug?: string[] }>;
 
-export async function generateMetadata({ params }: WikiPageProps): Promise<Metadata> {
-	const slug = params.slug ?? [];
+export async function generateMetadata({ params }: { params: WikiPageParams }): Promise<Metadata> {
+	const resolvedParams = await params;
+	const slug = resolvedParams.slug ?? [];
 	const page = await getWikiPage(slug);
 
 	if (!page) {
@@ -28,8 +27,9 @@ export async function generateMetadata({ params }: WikiPageProps): Promise<Metad
 	};
 }
 
-export default async function WikiPage({ params }: WikiPageProps) {
-	const slug = params.slug ?? [];
+export default async function WikiPage({ params }: { params: WikiPageParams }) {
+	const resolvedParams = await params;
+	const slug = resolvedParams.slug ?? [];
 	const page = await getWikiPage(slug);
 
 	if (!page) {

@@ -11,8 +11,10 @@ export function WikiBreadcrumbs({ items, className }: { items: Breadcrumb[]; cla
 					const href = `/wiki${item.urlPath ? `/${item.urlPath}` : ""}`;
 					const isLast = index === items.length - 1;
 
+					const key = `${item.type}:${href}`;
+
 					return (
-						<li key={href} className="flex items-center gap-1">
+						<li key={key} className="flex items-center gap-1">
 							{isLast ? (
 								<span className="font-medium text-foreground">{item.title}</span>
 							) : (

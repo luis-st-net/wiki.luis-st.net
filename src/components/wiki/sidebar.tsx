@@ -1,4 +1,6 @@
+import type { CSSProperties, ReactNode } from "react";
 import Link from "next/link";
+import { ChevronRight } from "lucide-react";
 import { WikiScrollArea } from "@/components/wiki/wiki-components";
 import { cn } from "@/lib/utils";
 import type { WikiFolderNode, WikiPageNode, WikiTreeNode } from "@/lib/wiki/types";
@@ -18,8 +20,8 @@ export function WikiSidebar({ tree, activeSlug }: WikiSidebarProps) {
 					Structured documentation index powered by the file system.
 				</p>
 			</div>
-			<WikiScrollArea className="flex-1 px-2 pb-8">
-				<ul className="space-y-2 pr-2">
+			<WikiScrollArea className="flex-1 px-3 pb-8">
+				<ul className="space-y-1">
 					{tree.children.map((node) => (
 						<li key={node.type === "page" ? node.id : node.path}>{renderNode(node, activeSlug, 0)}</li>
 					))}
@@ -29,7 +31,7 @@ export function WikiSidebar({ tree, activeSlug }: WikiSidebarProps) {
 	);
 }
 
-function renderNode(node: WikiTreeNode, activeSlug: string[], depth: number): React.ReactNode {
+function renderNode(node: WikiTreeNode, activeSlug: string[], depth: number): ReactNode {
 	if (node.type === "page") {
 		return <SidebarLink node={node} activeSlug={activeSlug} depth={depth} />;
 	}
@@ -39,23 +41,26 @@ function renderNode(node: WikiTreeNode, activeSlug: string[], depth: number): Re
 		(child) => !(child.type === "page" && segmentsEqual(child.slug, node.slug)),
 	);
 
+	const indentStyle: CSSProperties | undefined = depth ? { marginLeft: `calc(${depth} * 0.85rem)` } : undefined;
+	const directChildrenCount = children.length + (node.indexPage ? 1 : 0);
+
 	return (
-		<details open={isExpanded} className="group rounded-lg border border-transparent transition hover:border-border/60">
+		<details open={isExpanded} className="group">
 			<summary
 				className={cn(
-					"flex cursor-pointer items-center justify-between gap-2 rounded-lg px-3 py-2 text-sm font-semibold text-foreground transition hover:bg-secondary",
-					depth > 0 && "ml-[calc(var(--indent))]",
+					"flex cursor-pointer items-center gap-2 rounded-md px-2 py-1.5 text-sm font-medium text-muted-foreground transition hover:bg-muted/60 group-open:bg-muted",
 				)}
-				style={
-					{
-						"--indent": `${depth * 0.75}rem`,
-					} as React.CSSProperties
-				}
+				style={indentStyle}
 			>
-				<span>{node.title}</span>
-				<span className="text-xs text-muted-foreground">{children.length}</span>
+				<span className="flex flex-1 items-center gap-2">
+					<ChevronRight className="h-4 w-4 shrink-0 text-muted-foreground transition group-open:rotate-90" />
+					<span className="truncate text-foreground">{node.title}</span>
+				</span>
+				<span className="rounded-full bg-muted px-2 py-0.5 text-[0.65rem] font-medium text-muted-foreground">
+					{directChildrenCount} {directChildrenCount === 1 ? "item" : "items"}
+				</span>
 			</summary>
-			<div className="mt-2 space-y-1">
+			<div className="mt-1 space-y-1 pl-4">
 				{node.indexPage ? (
 					<SidebarLink node={node.indexPage} activeSlug={activeSlug} depth={depth + 1} />
 				) : null}
@@ -76,21 +81,18 @@ function SidebarLink({ node, activeSlug, depth }: { node: WikiPageNode; activeSl
 		<Link
 			href={href}
 			className={cn(
-				"group flex items-center justify-between gap-2 rounded-lg px-3 py-2 text-sm transition",
+				"group relative flex items-center justify-between gap-2 rounded-md px-2 py-1.5 text-sm transition",
 				isActive
-					? "bg-primary/10 text-primary border border-primary/30 shadow-sm"
-					: "text-muted-foreground hover:bg-secondary hover:text-foreground",
+					? "bg-primary/10 text-primary shadow-sm ring-1 ring-primary/40"
+					: "text-muted-foreground hover:bg-muted hover:text-foreground",
 			)}
 			style={
 				{
 					marginLeft: depth ? `calc(${depth} * 0.75rem)` : undefined,
-				} as React.CSSProperties
+				} as CSSProperties
 			}
 		>
 			<span className="truncate">{node.title}</span>
-			{node.headings.length ? (
-				<span className="text-[0.65rem] uppercase tracking-wide text-muted-foreground">#{node.headings.length}</span>
-			) : null}
 		</Link>
 	);
 }

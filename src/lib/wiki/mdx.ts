@@ -3,7 +3,7 @@ import remarkGfm from "remark-gfm";
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypePrismPlus from "rehype-prism-plus";
-import "prismjs";
+import Prism from "prismjs";
 import type { MDXComponents } from "mdx/types";
 
 import "prismjs/components/prism-bash";
@@ -14,6 +14,12 @@ import "prismjs/components/prism-markdown";
 import "prismjs/components/prism-tsx";
 import "prismjs/components/prism-typescript";
 import "prismjs/components/prism-yaml";
+import "prismjs/components/prism-markup";
+import "prismjs/components/prism-markup-templating";
+
+if (!Prism.languages.mdx && Prism.languages.jsx) {
+	Prism.languages.mdx = Prism.languages.jsx;
+}
 
 type CompileResult<TFrontmatter extends Record<string, unknown>> = Awaited<
 	ReturnType<typeof compileMDX<TFrontmatter>>
