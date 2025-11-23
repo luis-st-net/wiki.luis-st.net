@@ -5,6 +5,7 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypePrismPlus from "rehype-prism-plus";
 import Prism from "prismjs";
 import type { MDXComponents } from "mdx/types";
+import type { ElementContent } from "hast";
 
 import "prismjs/components/prism-bash";
 import "prismjs/components/prism-diff";
@@ -16,6 +17,22 @@ import "prismjs/components/prism-typescript";
 import "prismjs/components/prism-yaml";
 import "prismjs/components/prism-markup";
 import "prismjs/components/prism-markup-templating";
+
+const headingAnchorContent = [
+	{
+		type: "element",
+		tagName: "span",
+		properties: {
+			className: ["sr-only"],
+		},
+		children: [
+			{
+				type: "text",
+				value: "Jump to this heading",
+			},
+		],
+	},
+] satisfies ElementContent[];
 
 if (!Prism.languages.mdx && Prism.languages.jsx) {
 	Prism.languages.mdx = Prism.languages.jsx;
@@ -46,6 +63,7 @@ export async function compileWikiMdx<TFrontmatter extends Record<string, unknown
 								className: ["wiki-heading-anchor"],
 								"aria-label": "Anchor",
 							},
+							content: headingAnchorContent,
 						},
 					],
 					rehypePrismPlus,

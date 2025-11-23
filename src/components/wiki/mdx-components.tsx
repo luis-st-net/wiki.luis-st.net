@@ -68,15 +68,27 @@ function Pre({ className, ...props }: React.HTMLAttributes<HTMLPreElement>) {
 	return <pre className={cn("my-6 overflow-x-auto rounded-lg border border-border bg-muted/30 p-4", className)} {...props} />;
 }
 
-function Code({ className, ...props }: React.HTMLAttributes<HTMLElement>) {
+function Code({ className, children, ...props }: React.HTMLAttributes<HTMLElement>) {
+	const isInline = !className || !className.includes("language-");
+
+	if (isInline) {
+		return (
+			<code
+				className={cn("inline-flex items-center gap-1 rounded-md border bg-transparent text-sm font-semibold", className)}
+				{...props}
+			>
+				{children}
+			</code>
+		);
+	}
+
 	return (
 		<code
-			className={cn(
-				"rounded-md border border-border bg-muted px-1.5 py-0.5 text-sm font-semibold text-foreground",
-				className,
-			)}
+			className={cn("block font-mono text-sm leading-6", className)}
 			{...props}
-		/>
+		>
+			{children}
+		</code>
 	);
 }
 
